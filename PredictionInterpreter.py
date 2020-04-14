@@ -28,13 +28,13 @@ class MyPredictor(Predictor):
     listOfNumericalColumns: if there are columns that are numerical, pass them as String Array e.g. ['bodySize', 'jumpingDistance',...]
     override singlePredictionJson-method
     '''
-    def __init__(self, singlePredictJson, listOfNumericalColumns, standardColumns, resultcolumn, _classes_, **args):
+    def __init__(self, singlePredict, listOfNumericalColumns, standardColumns, resultcolumn, _classes_, **args):
         '''
         make changes to passed args and change initialization, if needed
         :param singlePredictJson(dataset): method that predicts one dataset and returns results
                 its parameter is one dataset from the data, that will be predicted. A dataset is one row of data
                 its return is a list of results, where first entry is most likely result, second entry is second-most-likely result,...
-                    each entry consists of class name, and at least one likelyhood-measure in this format:
+                    each entry consists of class name, and at least one likelyhood-measure in this format of a numpy-array:
                     [{'predicted': 'cat', 'confidence':0.9908, 'dist':3.785},{'predicted': 'dog', 'confidence':0.28, 'dist':1.785}]
                     the 'dist' needs to be set. The higher the distance is, the more secure the result is
         :param listOfNumericalColumns: for some Calculations it is necessary to know the columns that need to be interpreted numerically (e.g. age, costs, sallary, taxes ...)
@@ -43,7 +43,7 @@ class MyPredictor(Predictor):
         :param _classes_: all values in resultcolumn e.g. np.array([2345, 23423, 23423]).astype(Str) or np.array(["tenToInclFifty", "fiftyToInclNinety", "overNinety"])
         :param args:
         '''
-        self.singlePredictJson = singlePredictJson
+        self.singlePredictJson = singlePredict
         self.listOfNumericalColumns = listOfNumericalColumns
         self.standardColumns = standardColumns
         self.resultColumn = resultcolumn

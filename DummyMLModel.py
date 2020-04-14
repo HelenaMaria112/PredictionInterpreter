@@ -73,10 +73,12 @@ class DummyMLModel:
     def predict(self, dataset):
         self.encodeData(dataset)
         dataset = dataset.drop("visitorsOnThisDay")
-        dataset = dataset.to_numpy().reshape(1, -1)
-        prediction = pd.DataFrame(self.clf.classes_, columns=["value"])
-        prediction["dist"] = self.clf.decision_function(dataset)[0]
-        prediction = prediction.sort_values(by=["dist"], ascending=False)
+        dt = {'names': ['predicted', 'dist'], 'formats': [object, np.float]}
+        prediction = np.zeros(4, dtype=dt)
+        prediction['predicted'] = self.clf.classes_
+        prediction['dist'] = self.clf.predict_proba(dataset.to_numpy().reshape(1,-1))
+        prediction = prediction[np.argsort(prediction["dist"])]
+        prediction = y = np.flipud(prediction)
         return prediction
 
 
