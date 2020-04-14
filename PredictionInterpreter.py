@@ -28,13 +28,6 @@ class MyPredictor(Predictor):
     listOfNumericalColumns: if there are columns that are numerical, pass them as String Array e.g. ['bodySize', 'jumpingDistance',...]
     override singlePredictionJson-method
     '''
-    def __init__(self, **args):
-        '''
-        make changes to passed args and change initialization, if needed
-        :param args:
-        '''
-        super().__init__(**args)
-
     def __init__(self, singlePredictJson, listOfNumericalColumns, standardColumns, resultcolumn, _classes_, **args):
         '''
         make changes to passed args and change initialization, if needed
@@ -56,16 +49,6 @@ class MyPredictor(Predictor):
         self.resultColumn = resultcolumn
         self._classes_ = _classes_
         super().__init__(**args)
-
-    def singlePredictJson(self, dataset):
-        '''
-        predicts one dataset and returns results
-        :param dataset: dataset from data, that will be predicted. A dataset is one row of data
-        :return:    list of results, where first entry is most likely result, second entry is second-most-likely result,...
-                    each entry consists of class name, and at least one likelyhood-measure in this format:
-                    [{'predicted': 'cat', 'confidence':0.9908, 'dist':3.785},{'predicted': 'dog', 'confidence':0.28, 'dist':1.785}]
-                    the 'dist' needs to be set. The higher the distance is, the more secure the result is
-        '''
 
 class PredictionInterpreterClass:
     def __init__(self, singlePredictJson, listOfNumericalColumns, standardColumns, resultcolumn, _classes_, data):
