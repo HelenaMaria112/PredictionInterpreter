@@ -66,6 +66,12 @@ class Predictor:
         self.decodedColumns= data.columns
         if exceptedColumns:
             self.decodedColumns=self.decodedColumns.drop(exceptedColumns)
+        data[self.listOfNumericalColumns] = data[self.listOfNumericalColumns].astype(float).astype(str)
+
+        self.createEncodingDictionary(data)
+        return self.encodeData(data)
+
+    def createEncodingDictionary(self, data):
         self.encodingDictionary = pd.Series()
         for column in self.decodedColumns:
             if self.listOfNumericalColumns is not None and column in self.listOfNumericalColumns:
@@ -73,6 +79,7 @@ class Predictor:
             else:
                 self.encodingDictionary[column] = data.loc[:][column].sort_values().unique()
 
+    def encodeData(self, data):
         encodedData = pd.DataFrame(index=data.index, columns=data.columns)
         for rowIndex in range(len(encodedData)):
             for column in encodedData.columns:
@@ -81,7 +88,7 @@ class Predictor:
                     encodedData.iloc[rowIndex].loc[column] = realValue
                 else:
                     encodedData.iloc[rowIndex].loc[column] = np.where(self.encodingDictionary[column] == realValue)[0][0]
-        return encodedData.astype(float).astype(int)
+        return encodedData
 
     def decode(self, data):
         if self.counter ==1:

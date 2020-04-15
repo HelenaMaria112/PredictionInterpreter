@@ -60,7 +60,7 @@ def interactionPlotPredicted(data, pr, featuresToExamine):
     )
     save("interactionPlotPredicted", plt=plt, fig=fig)
 
-def plotpdpOfDistanceToTrueResultPdpbox(data, resultColumnName, pr, featureToExamine = None, featuresToExamine = None, exceptedColumns=None):
+def plotpdpOfDistanceToTrueResultPdpbox(data, resultColumnName, pr, featureToExamine = None, featuresToExamine = None, exceptedColumns=None, resultIsContinuous = True):
     '''
     :param data: pandas dataframe with datasets where each row represents a dataset
     :param resultColumnName: Name of column in data that contains actual results
@@ -72,12 +72,15 @@ def plotpdpOfDistanceToTrueResultPdpbox(data, resultColumnName, pr, featureToExa
     resultColumnName = pr.resultColumn
     data=pr.encode(data, exceptedColumns=exceptedColumns)
     if featureToExamine is not None:
-        targetDistribution(data, featureToExamine, resultColumnName)
+        if resultIsContinuous == True:
+            targetDistribution(data, featureToExamine, resultColumnName)
+            targetDistributionNumericFeature(data, featureToExamine,
+                                             resultColumnName)  # very similar to normal distribution
         predictionDistribution(data, pr, featureToExamine)
         pdpPdpbox(data, pr, featureToExamine)
-        targetDistributionNumericFeature(data, featureToExamine, resultColumnName)  #very similar to normal distribution
     if featuresToExamine is not None:
-        interactionPlotReal(data, featuresToExamine, pr)
+        if resultIsContinuous == True:
+            interactionPlotReal(data, featuresToExamine, pr)
         interactionPlotPredicted(data, pr, featuresToExamine)
 
 def plotpdpOfDistanceToTrueResultSklearn(data, subplots, pr ):

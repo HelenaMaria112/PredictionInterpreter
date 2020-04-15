@@ -51,13 +51,14 @@ class MyPredictor(Predictor):
         super().__init__(**args)
 
 class PredictionInterpreterClass:
-    def __init__(self, singlePredictJson, listOfNumericalColumns, standardColumns, resultcolumn, _classes_, data):
+    def __init__(self, singlePredictJson, listOfNumericalColumns, standardColumns, resultcolumn, _classes_, data, resultIsContinuous):
         self.singlePredictJson=singlePredictJson
         self.listOfNumericalColumns=listOfNumericalColumns
         self.standardColumns=standardColumns
         self.resultcolumn=resultcolumn
         self._classes_=_classes_
         self.data=data
+        self.resultIsContinuous = resultIsContinuous
 
     def initPredictor(self):
         self.myPredictor = MyPredictor(self.singlePredictJson, self.listOfNumericalColumns, self.standardColumns, self.resultcolumn, self._classes_)
@@ -71,9 +72,9 @@ class PredictionInterpreterClass:
     def printImportanceEli5(self, distanceAnalysis = True, exceptedColumns = None):
         self.initPredictor()
         printImportanceEli5(self.data, self.myPredictor, distanceAnalysis=distanceAnalysis, exceptedColumns = exceptedColumns)
-    def featureAnnulation(self):
+    def featureAnnulation(self, annulationValue):
         self.initPredictor()
-        featureAnnulation(self.data, self.myPredictor)
+        featureAnnulation(self.data, self.myPredictor, annulationValue=annulationValue)
     def plotIce(self):
         self.initPredictor()
         plotIce(self.data, self.myPredictor.setReturnDistanceOfClass(True))
@@ -85,7 +86,7 @@ class PredictionInterpreterClass:
         :return: plot
         '''
         self.initPredictor()
-        plotpdpOfDistanceToTrueResultPdpbox(self.data, self.myPredictor.resultColumn, featureToExamine = featureToExamine, featuresToExamine = featuresToExamine, exceptedColumns=exceptedColumns,  pr = self.myPredictor.setReturnDistanceOfClass(True))
+        plotpdpOfDistanceToTrueResultPdpbox(self.data, self.myPredictor.resultColumn, featureToExamine = featureToExamine, featuresToExamine = featuresToExamine, exceptedColumns=exceptedColumns,  pr = self.myPredictor.setReturnDistanceOfClass(True), resultIsContinuous = self.resultIsContinuous)
 
     def plotpdpOfDistanceToTrueResultSklearn(self, listOfColumnsToExamine = None):
         '''

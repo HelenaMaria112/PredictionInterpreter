@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.metrics import accuracy_score
 from InterpretationTechniques.PlotAndShow import *
 
-def featureAnnulation(data, pr):
+def featureAnnulation(data, pr, annulationValue = 0):
     '''
     :param data: pandas dataframe with datasets where each row represents a dataset
     :param resultColumnName: Name of column in data that contains actual results
@@ -17,7 +17,7 @@ def featureAnnulation(data, pr):
     origAccuracy = accuracy_score(data[resultColumnName], pr.predict(data), normalize=True)
     for column in data.columns.drop(resultColumnName):
         dataWOColumn = data.copy()
-        dataWOColumn[column] = 0
+        dataWOColumn[column] = annulationValue
         predictionColumn = pr.predict(dataWOColumn)
         accuracies[column] = accuracy_score(data[resultColumnName], predictionColumn, normalize=True, sample_weight=None)
         predictions[column] = predictionColumn

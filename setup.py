@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="ClassificationPredictionInterpreter-pkg-HelenaMaria", # Replace with your own username
+    name="ClassificationPredictionInterpreter-pkg-HelenaMaria",
     version="0.0.1",
     author="HelenaMaria",
     author_email="anna.schmitt.anna@gmail.com",
@@ -18,5 +18,5 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.6',  # maybe not applicable...
 )
