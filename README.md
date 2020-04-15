@@ -33,12 +33,12 @@ Additionally to the DummyMLModel, it is necessary to give
     _classes_ = data[resultcolumn].unique().tolist()
     resultIsContinuous = False
 
-After that, create the the interpreter with the before defined parameters, and run the interpretation techniques that are of interest to you. 
+After that, create the the interpreter with the before defined parameters, and run the interpretation techniques that are of interest for you. 
 
     #create interpreter 
     predictionInterpreter = PredictionInterpreterClass(dm.predict, listOfNumericalColumns, standardColumns, resultcolumn, _classes_, data, resultIsContinuous)
     
-    #call interpretation techniques you want to use:
+    #call interpretation technique  s you want to use:
     predictionInterpreter.plotpdpOfDistanceToTrueResultSklearn() # only works if called without any prior methods
     predictionInterpreter.plotpdpOfDistanceToTrueResultSklearn2D()
     predictionInterpreter.writeDistribution("visitorsOnThisDay")

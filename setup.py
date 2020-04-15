@@ -11,7 +11,7 @@ setuptools.setup(
     description="univariate model's Interpretation Techniques - also for classificating features and predictions",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/HelenaMaria112/PredictionInterpreter",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

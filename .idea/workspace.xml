@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ed285333-f089-4375-9f93-83e0442b78b7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connections/predictor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Connections/predictor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DummyMLModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/DummyMLModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InterpretationTechniques/featureExamination/featureAnnulationForPredictor.py" beforeDir="false" afterPath="$PROJECT_DIR$/InterpretationTechniques/featureExamination/featureAnnulationForPredictor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InterpretationTechniques/featureExamination/pdpForPredictor.py" beforeDir="false" afterPath="$PROJECT_DIR$/InterpretationTechniques/featureExamination/pdpForPredictor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionInterpreter.py" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionInterpreter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StartPredictionInterpreter.py" beforeDir="false" afterPath="$PROJECT_DIR$/StartPredictionInterpreter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,6 +20,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="HelenaMaria112 &lt;mail.for.alex@web.de&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1Zd67idqQG8gzavgOindBwCUIzV" />
@@ -61,6 +60,9 @@
       <module name="PredictionInterpreter" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="C:\Users\annas\PycharmProjects\PredictionInterpreter\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -118,7 +120,7 @@
       <workItem from="1586756682943" duration="2983000" />
       <workItem from="1586803547795" duration="944000" />
       <workItem from="1586849057270" duration="20177000" />
-      <workItem from="1586928981792" duration="11454000" />
+      <workItem from="1586928981792" duration="13147000" />
     </task>
     <task id="LOCAL-00001" summary="simple testdata">
       <created>1586756755336</created>
@@ -141,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586884619688</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="setup.py, README, some last changes to startPrediction and DummyMLModel">
+      <created>1586955516715</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1586955516715</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,7 +173,8 @@
     <MESSAGE value="simple testdata" />
     <MESSAGE value="dummyModel running" />
     <MESSAGE value="dummyModel running really" />
-    <option name="LAST_COMMIT_MESSAGE" value="dummyModel running really" />
+    <MESSAGE value="setup.py, README, some last changes to startPrediction and DummyMLModel" />
+    <option name="LAST_COMMIT_MESSAGE" value="setup.py, README, some last changes to startPrediction and DummyMLModel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
